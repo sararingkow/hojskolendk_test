@@ -1,0 +1,26 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Button from "../components/Button.astro";
+import Link from "../components/Link.astro";
+---
+
+<MainLayout title="Rejser">
+  <section class="relative w-full h-auto">
+    <div class="aspect-w-16 aspect-h-9 w-full">
+      <img src="/images/listview.webp" alt="en gruppe af mennesker" class="object-cover" />
+    </div>
+    <!-- Tekst over videoen -->
+    <div class="absolute w-full px-[20px] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      <p class="font-lato text-neutral-50 font-[14px] md:font-p-desktop">Priser &</p>
+      <h1 class="text-[24px] md:text-display-desktop font-display font-bold text-neutral-50">REJSER</h1>
+      <p class="font-lato text-neutral-50 font-[16px] md:text-h4-desktop">
+        Få et klart overblik over vores højskoleophold i udlandet. Her finder du information om forløb, datoer, priser og inspirerende promo-videoer.
+        På opholdssiderne kan du læse mere om programmet, adventure-aktiviteter, fag, rejsebreve og alt det, der er inkluderet.
+      </p>
+      <div class="flex flex-column pt-xs gap-s md:flex md:pt-s">
+        <Button variant="secondary" size="sm:xsmall md:medium">Kontakt</Button>
+        <Button variant="primary" size="sm:xsmall md:medium">Tilmeld infomøde</Button>
+      </div>
+    </div>
+  </section>
+</MainLayout>

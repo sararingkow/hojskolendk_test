@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .display {
+    @apply font-display font-black text-gray-950;
+  }
+
+  @screen md {
+    .display {
+      @apply text-display-desktop;
+    }
+  }
+
+  @screen sm {
+    .display {
+      @apply text-display-mobile;
+    }
+  }
+
+  h1 {
+    @apply font-display font-bold text-gray-950;
+  }
+
+  @screen md {
+    h1 {
+      @apply text-h1-desktop;
+    }
+  }
+
+  @screen sm {
+    h1 {
+      @apply text-h1-mobile;
+    }
+  }
+
+  h2 {
+    @apply font-display font-bold text-gray-950;
+  }
+
+  @screen md {
+    h2 {
+      @apply text-h2-desktop;
+    }
+  }
+
+  @screen sm {
+    h2 {
+      @apply text-h2-mobile;
+    }
+  }
+
+  h3 {
+    @apply font-display font-semibold text-gray-950;
+  }
+
+  @screen md {
+    h3 {
+      @apply text-h3-desktop;
+    }
+  }
+
+  @screen sm {
+    h3 {
+      @apply text-h3-mobile;
+    }
+  }
+
+  h4 {
+    @apply font-display font-semibold text-gray-950;
+  }
+
+  @screen md {
+    h4 {
+      @apply text-h4-desktop;
+    }
+  }
+
+  @screen sm {
+    h4 {
+      @apply text-h4-mobile;
+    }
+  }
+
+  p {
+    @apply font-lato font-regular text-gray-950;
+  }
+
+  @screen md {
+    p {
+      @apply text-p-desktop;
+    }
+  }
+
+  @screen sm {
+    p {
+      @apply text-p-mobile;
+    }
+  }
+
+  a,
+  li {
+    @apply font-lato font-regular text-blue-700;
+  }
+
+  @screen md {
+    a,
+    li {
+      @apply text-a-desktop;
+    }
+  }
+
+  @screen sm {
+    a,
+    li {
+      @apply text-a-mobile;
+    }
+  }
+}

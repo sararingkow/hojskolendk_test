@@ -1,0 +1,113 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Button from "../components/Button.astro";
+import CardListeview from "../components/CardListeview.astro";
+
+const cards = [
+  {
+    image: "/waterfall_swing.webp",
+    label: "Inkl. fly & program",
+    title: "HØJSKOLE PÅ MALDIVERNE, SRI LANKA, BALI & GILI ISLANDS",
+    description:
+      "Tag på højskole i udlandet og oplev fællesskab og eventyr på tropeøer i Det Indiske Ocean. Nyd Maldivernes hvide strande og snorkling eller oplev Sri Lankas kultur og fællesskab.",
+    duration: "2 måneder",
+    nextTrip: "8/1 - 8/3-25",
+    price: "52.500 kr.",
+    include: "Inkl. fly",
+    buttonText: "Læs mere",
+  },
+  {
+    image: "/australia1.webp",
+    label: "Inkl. fly & program",
+    title: "HØJSKOLE I AUSTRALIEN, NZ, BALI & GILI ISLANDS",
+    description:
+      "Tag på højskole i udlandet og oplev eventyr på Bali, Australien og New Zealand. Udforsk tropiske strande, vild natur, og spændende storbyer.",
+    duration: "3 måneder",
+    nextTrip: "8/4 - 8/7-25",
+    price: "64.900 kr.",
+    include: "Inkl. fly",
+    buttonText: "Læs mere",
+  },
+  {
+    image: "/japan.webp",
+    label: "Inkl. fly & program",
+    title: "HØJSKOLE I AUSTRALIEN, JAPAN, BALI & GILI ISLANDS",
+    description:
+      "Tag med på et 2-måneders højskoleophold i Australien og Asien! Oplev Bali med tropiske strande og vulkaner, Gili Islands' paradis, Australien med strande og dyreliv, og Japan med pulserende storbyer og unik kultur.",
+    duration: "2 måneder",
+    nextTrip: "8/8 - 8/10-25",
+    price: "54.900 kr.",
+    include: "Inkl. fly",
+    buttonText: "Læs mere",
+  },
+  {
+    image: "/australia2.webp",
+    label: "Inkl. fly & program",
+    title: "HØJSKOLE I HAWAII, AUSTRALIEN, JAPAN, BALI & GILI ISLANDS",
+    description:
+      "Tag med på en episk jordomrejse! Oplev Hawaiis vulkaner, Australien’s dyreliv, Japans storbyer og Bali/Gili Islands’ tropiske paradis.",
+    duration: "3 måneder",
+    nextTrip: "8/11-25 - 8/2-26",
+    price: "84.500 kr.",
+    include: "Inkl. fly",
+    buttonText: "Læs mere",
+  },
+  {
+    image: "/caribbean.webp",
+    label: "Inkl. fly & program",
+    title: "HØJSKOLE I CARIBIEN, HAWAII & MEXICO",
+    description:
+      "Tag på højskole i paradis og oplev eventyr på Hawaiis vulkaner, Mexicos mayakultur og Caribiens tropiske strande. Udforsk regnskove, snorkl med havdyr og nyd lokale madoplevelser i fantastiske omgivelser.",
+    duration: "3 måneder",
+    nextTrip: "8/3 - 8/6-26",
+    price: "67.900 kr.",
+    include: "Inkl. fly",
+    buttonText: "Læs mere",
+  },
+];
+---
+
+<MainLayout title="Rejser">
+  <section class="relative w-full h-auto">
+    <!-- Container for the image and overlay -->
+    <div class="relative aspect-w-16 aspect-h-9 w-full">
+      <!-- Dark overlay -->
+      <div class="absolute inset-0 bg-neutral-950 w-full md:h-[800px] h-[450px] bg-opacity-30 z-[30]"></div>
+      <!-- Image -->
+      <img src="/listview.webp" alt="en gruppe af mennesker" class="object-cover w-full md:h-[800px] h-[450px] z-[10]" />
+    </div>
+
+    <!-- Text content over the image (no centering) -->
+    <div class="absolute w-full px-[20px] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[40]">
+      <h4 class="font-lato text-neutral-50 md:text-h4-desktop text-h4-mobile md:pt-xs pt-8xl">Priser &</h4>
+      <h1 class="text-display-mobile md:text-display-desktop font-display font-bold text-neutral-50">REJSER</h1>
+      <p class="font-lato text-neutral-50 md:text-p-desktop text-mobile-desktop max-w-3xl">
+        Få et klart overblik over vores højskoleophold i udlandet. Her finder du information om forløb, datoer, priser og inspirerende promo-videoer.
+        På opholdssiderne kan du læse mere om programmet, adventure-aktiviteter, fag, rejsebreve og alt det, der er inkluderet.
+      </p>
+      <div class="flex flex-column pt-sm gap-s md:flex md:pt-s">
+        <Button variant="secondary" size="sm:xsmall md:medium">Kontakt</Button>
+        <Button variant="primary" size="sm:xsmall md:medium">Infomøde</Button>
+      </div>
+    </div>
+  </section>
+  <section class="py-12 px-6 flex justify-center items-center">
+    <div class="container mx-auto flex flex-wrap justify-center gap-sm">
+      {
+        cards.map((card) => (
+          <CardListeview
+            image={card.image}
+            label={card.label}
+            title={card.title}
+            description={card.description}
+            duration={card.duration}
+            nextTrip={card.nextTrip}
+            price={card.price}
+            include={card.include}
+            buttonText={card.buttonText}
+          />
+        ))
+      }
+    </div>
+  </section>
+</MainLayout>
