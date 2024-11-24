@@ -9,46 +9,61 @@ export interface CardProps {
   price: string;
   include: string;
   buttonText: string;
+  extralabel: string; // Optional prop for the additional label
 }
 
-const { image, label, title, description, duration, nextTrip, price, include, buttonText } = Astro.props;
+const { image, label, title, description, duration, nextTrip, price, include, buttonText, extralabel } = Astro.props;
 import Button from "./Button.astro";
 ---
 
 <div class="flex flex-col md:flex-row bg-white md:w-[1100px] rounded-sm shadow-md overflow-hidden bg-neutral-100">
   <!-- Image Section -->
-  <div class="md:w-[300px] relative">
-    <img src={image} alt={title} class="object-cover h-full w-[300px]" />
-    <div class="absolute top-4 left-4 bg-orange-400 text-white px-3 py-1 rounded-md text-sm">{label}</div>
-  </div>
+  <div class="md:w-[300px] w-full relative">
+    <img src={image} alt={title} class="object-cover h-full md:w-[300px] w-full" />
 
+    <!-- Main Label -->
+    <div class="absolute top-4 left-[9rem] bg-orange-400 text-white px-3 py-1 rounded-md text-sm">
+      {label}
+    </div>
+
+    <!-- Extra Label (Only visible if 'extraLabel' exists) -->
+    {extralabel && <div class="absolute top-[17rem] left-4 bg-blue-500 text-white px-3 py-1 rounded-md text-sm">{extralabel}</div>}
+  </div>
   <!-- Content Section -->
-  <div class="p-6 flex flex-col gap-6 md:w-2/3 h-full">
-    <!-- Title, Description, Travel Info, and Price Info in Flex Layout (2 Columns on MD+) -->
-    <div class="flex flex-col md:flex-row gap-6 h-full">
-      <!-- Title and Description (First Column) -->
-      <div class="flex-1 p-xs mx-xs">
-        <h3 class="text-xl font-bold mb-xs">{title}</h3>
-        <p class="text-gray-600">{description}</p>
-        <!-- Button Section -->
-        <div class="mt-xs">
+  <div class="flex flex-col md:flex-row gap-6 md:w-2/3 h-full">
+    <!-- Title and Description -->
+    <div class="flex-1 py-sm mx-xs">
+      <h3 class="text-xl font-bold mb-xs">{title}</h3>
+      <p class="text-gray-600">{description}</p>
+      <!-- Button Section -->
+      <div class="mt-xs">
+        <a href="/singleview">
           <Button variant="primary" size="sm:xsmall md:medium">{buttonText}</Button>
-        </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Travel Info and Price Info -->
+    <div class="flex flex-row gap-6 flex-1">
+      <!-- Travel Info Section -->
+      <div class="bg-gray-200 flex-1 p-xs flex flex-col">
+        <p>
+          <span class="text-gray-500">Varighed</span>
+          <h4 class="font-semibold pb-xs">{duration}</h4>
+        </p>
+        <p>
+          <span class="text-gray-500">Næste rejse</span>
+          <h4 class="font-semibold">{nextTrip}</h4>
+        </p>
       </div>
 
-      <!-- Travel Info and Price Info (Second Column) -->
-      <div class="flex flex-col md:flex-row gap-6 flex-1 h-full">
-        <!-- Travel Info Section -->
-        <div class="bg-gray-200 h-full flex-1 p-xs flex flex-col">
-          <p><span class="font-extrabold text-gray-500">Varighed</span> <h4 class="font-extrabold pb-xs">{duration}</h4></p>
-          <p><span class="font-extrabold text-gray-500">Næste rejse</span> <h4 class="font-extrabold">{nextTrip}</h4></p>
-        </div>
-
-        <!-- Price Info Section -->
-        <div class="bg-gray-100 rounded-md flex-1 p-xs">
-          <p><span class="font-extrabold text-gray-500">Pris pr. pers.</span> <h4 class="font-extrabold pb-xs">{price}</h4></p>
-          <p class="text-gray-500 mt-1">{include}</p>
-        </div>
+      <!-- Price Info Section -->
+      <div class="bg-gray-100 rounded-md flex-1 p-xs">
+        <p>
+          <span class="text-gray-500">Pris pr. pers.</span>
+          <h4 class="font-semibold pb-xs">{price}</h4>
+        </p>
+        <p class="text-gray-500 mt-1">{include}</p>
       </div>
     </div>
   </div>
