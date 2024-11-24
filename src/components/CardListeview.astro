@@ -16,18 +16,24 @@ const { image, label, title, description, duration, nextTrip, price, include, bu
 import Button from "./Button.astro";
 ---
 
-<div class="flex flex-col md:flex-row bg-white md:w-[1100px] rounded-sm shadow-md overflow-hidden bg-neutral-100">
+<div class="flex flex-col md:flex-row bg-white md:w-[1600px] rounded-sm shadow-md overflow-hidden bg-neutral-100">
   <!-- Image Section -->
-  <div class="md:w-[300px] w-full relative">
-    <img src={image} alt={title} class="object-cover h-full md:w-[300px] w-full" />
+  <div class="md:w-[550px] w-full md:h-[350px] h-[400px] relative">
+    <img src={image} alt={title} class="object-cover md:w-[550px] md:h-[350px] h-[400px] w-full" />
 
     <!-- Main Label -->
-    <div class="absolute top-4 left-[9rem] bg-orange-400 text-white px-3 py-1 rounded-md text-sm">
+    <div class="absolute md:top-4 md:left-[21.5rem] top-2 left-[18rem] bg-orange-400 text-white px-3 py-1 rounded-sm md:text-sm text-md">
       {label}
     </div>
 
     <!-- Extra Label (Only visible if 'extraLabel' exists) -->
-    {extralabel && <div class="absolute top-[17rem] left-4 bg-blue-500 text-white px-3 py-1 rounded-md text-sm">{extralabel}</div>}
+    {
+      extralabel && (
+        <div class="absolute md:top-[19rem] md:left-4 top-[22.5rem] left-2 bg-blue-500 text-white px-3 py-1 rounded-sm md:text-sm text-md">
+          {extralabel}
+        </div>
+      )
+    }
   </div>
   <!-- Content Section -->
   <div class="flex flex-col md:flex-row gap-6 md:w-2/3 h-full">
@@ -36,7 +42,7 @@ import Button from "./Button.astro";
       <h3 class="text-xl font-bold mb-xs">{title}</h3>
       <p class="text-gray-600">{description}</p>
       <!-- Button Section -->
-      <div class="mt-xs">
+      <div class="mt-sm">
         <a href="/singleview">
           <Button variant="primary" size="sm:xsmall md:medium">{buttonText}</Button>
         </a>
@@ -46,7 +52,7 @@ import Button from "./Button.astro";
     <!-- Travel Info and Price Info -->
     <div class="flex flex-row gap-6 flex-1">
       <!-- Travel Info Section -->
-      <div class="bg-gray-200 flex-1 p-xs flex flex-col">
+      <div class="bg-gray-200 flex-1 p-sm flex flex-col">
         <p>
           <span class="text-gray-500">Varighed</span>
           <h4 class="font-semibold pb-xs">{duration}</h4>
@@ -58,7 +64,7 @@ import Button from "./Button.astro";
       </div>
 
       <!-- Price Info Section -->
-      <div class="bg-gray-100 rounded-md flex-1 p-xs">
+      <div class="bg-gray-100 rounded-md flex-1 py-sm mx-sm">
         <p>
           <span class="text-gray-500">Pris pr. pers.</span>
           <h4 class="font-semibold pb-xs">{price}</h4>
