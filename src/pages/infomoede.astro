@@ -1,11 +1,142 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import Button from "../components/Button.astro";
-import Link from "../components/Link.astro";
+
+import { Image } from "astro:assets";
+import pin from "../assets/images/stedpin.svg";
 ---
 
-<MainLayout title="Indfomøde">
-    <section class="max-w-7xl mx-auto p-6">
-        <h1>Infomøde</h1>
-    </section>
+<MainLayout title="Tilmeld infomøde">
+  <div class="flex flex-wrap lg:flex-nowrap">
+    <!-- Left Section -->
+    <div class="bg-blue-900 text-neutral-50 p-md w-full lg:w-1/2">
+      <h1 class="md:text-h1-desktop text-h1-mobile font-bold md:pt-3xl pt-xl text-neutral-50">Infomøder – Højskole i Udlandet</h1>
+      <p class="mt-8 text-neutral-50 md:text-p-desktop text-p-mobile">
+        Drømmer du om et rejseeventyr fyldt med adventure, naturoplevelser, kulturmøder og højskolefællesskab? Deltag i et af vores infomøder i
+        København, Aarhus eller online!
+      </p>
+      <div class="mt-8">
+        <div class="flex items-start space-x-4">
+          <span><Image src={pin} alt="ikon_uret" class="w-6 h-6 mt-2" /></span>
+          <div>
+            <h3 class="text-h3-mobile font-bold text-neutral-50">København</h3>
+            <p class="text-neutral-50 md:text-p-desktop text-p-mobile">Studenterhuset<br />Købmagergade 52 – 1150 København K</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4 mt-10">
+          <span><Image src={pin} alt="ikon_uret" class="w-6 h-6 mt-2" /></span>
+          <div>
+            <h3 class="text-h3-mobile font-bold text-neutral-50">Aarhus</h3>
+            <p class="text-neutral-50 md:text-p-desktop text-p-mobile">LYNfabrikken<br />Vestergade 49B – 8000 Aarhus</p>
+          </div>
+        </div>
+      </div>
+      <h4 class="md:text-h4-desktop text-h4-mobile font-bold mt-12 text-neutral-50">Oplev vores højskole og alt det, der venter:</h4>
+      <ul class="list-disc list-inside mt-2 space-y-2">
+        <li class="text-neutral-50 md:text-p-desktop text-p-mobile">Hvem er HØJSKOLENDK?</li>
+        <li class="text-neutral-50 md:text-p-desktop text-p-mobile">Vores eventyrlige højskoleophold</li>
+        <li class="text-neutral-50 md:text-p-desktop text-p-mobile">Adventure, aktiviteter og oplevelser, der venter</li>
+        <li class="text-neutral-50 md:text-p-desktop text-p-mobile">En typisk dag på højskole i udlandet</li>
+        <li class="text-neutral-50 md:text-p-desktop text-p-mobile">Vores levende og aktive undervisningsform – ingen kedelige klasseværelser!</li>
+        <li class="text-neutral-50 md:text-p-desktop text-p-mobile">Praktisk info: økonomi, lommepenge, pakkeliste, fridage, afrejsemåde m.m.</li>
+      </ul>
+      <p class="mt-8 text-neutral-50 md:text-p-desktop text-p-mobile">
+        Vi afslutter med "Rejsefeber Café", hvor du kan møde tidligere elever, rejseledere og ejerne – og stille alle dine spørgsmål.
+      </p>
+      <p class="mt-8 font-semibold text-neutral-50 md:text-p-desktop text-p-mobile">Vi glæder os til at se dig!</p>
+    </div>
+
+    <!-- Right Section -->
+    <div class="bg-neutral-50 md:p-xl p-sm w-full lg:w-1/2 md:pt-6xl pt-md">
+      <h2 class="md:text-h2-desktop text-h2-mobile font-bold mb-10 text-center">Tilmeld dig infomøde</h2>
+      <form class="space-y-4">
+        <div>
+          <label for="event" class="block font-semibold mb-2">
+            Vælg infomøde<span class="text-orange-700">*</span>
+          </label>
+          <select
+            id="event"
+            class="w-full border bg-neutral-100 border-neutral-100 p-2 rounded-sm text-neutral-700"
+            required
+            onchange="this.className = this.value ? 'w-full border bg-neutral-100 border-neutral-100 p-2 rounded-sm text-gray-950' : 'w-full border border-neutral-100 p-2 rounded-sm'"
+          >
+            <option value="" disabled selected hidden>Vælg dato og sted</option>
+            <option value="online1">Online - 13. november 2024 17.00 - 19.00</option>
+            <option value="aarhus1">Aarhus - 14. januar 2025 17.00 - 19.00</option>
+            <option value="kbh1">København - 16. januar 2025 17.00 - 19.00</option>
+            <option value="online2">Online - 21. januar 2025 17.00 - 19.00</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="name" class="block font-semibold mb-2">Navn<span class="text-orange-700">*</span></label>
+          <input
+            type="text"
+            id="name"
+            class="w-full border bg-neutral-100 border-neutral-100 p-2 rounded-sm text-neutral-700"
+            value="Børge Møller Hansen"
+            required
+          />
+        </div>
+        <div>
+          <label for="phone" class="block font-semibold mb-2">Tlf. nr.</label>
+          <input
+            type="tel"
+            id="phone"
+            class="w-full border bg-neutral-100 border-neutral-100 p-2 rounded-sm text-neutral-700"
+            value="+45 11 22 33 44"
+          />
+        </div>
+        <div>
+          <label for="email" class="block font-semibold mb-2">Email</label>
+          <input
+            type="email"
+            id="email"
+            class="w-full border bg-neutral-100 border-neutral-100 p-2 rounded-sm text-neutral-700"
+            value="boerge.m.hansen@gmail.com"
+          />
+        </div>
+        <div>
+          <label for="participants" class="block font-semibold mb-2">Hvor mange deltagere kommer I?<span class="text-orange-700">*</span></label>
+          <input
+            type="number"
+            id="participants"
+            class="w-full border bg-neutral-100 border-neutral-100 p-2 rounded-sm text-neutral-700"
+            value="2"
+            required
+          />
+        </div>
+        <div>
+          <label for="destination" class="block font-semibold mb-2"
+            >Hvilken destination er du interesseret i?<span class="text-orange-700">*</span></label
+          >
+          <input
+            type="text"
+            id="destination"
+            class="w-full border bg-neutral-100 border-neutral-100 p-2 rounded-sm text-neutral-700 mb-4"
+            value="Caribien, Hawaii & Mexico"
+            required
+          />
+        </div>
+        <div class="space-y-2">
+          <label class="flex items-start space-x-2">
+            <input type="checkbox" class="mt-2" />
+            <span>Ved tilmelding giver du os tilladelse til at kontakte dig m. påmindelser og opfølgning</span>
+          </label>
+          <label class="flex items-start space-x-2">
+            <input type="checkbox" class="mt-2" />
+            <span
+              >Jeg har læst jeres <a href="#" class="text-orange-700 underline">privatlivspolitik</a> og <a href="#" class="text-orange-700 underline"
+                >generelle bestemmelser</a
+              > og er indforstået med begge<span class="text-orange-700">*</span></span
+            >
+          </label>
+        </div>
+        <div class="flex justify-center pt-[30px]">
+          <Button variant="primary" size="sm:xsmall md:medium">Tilmeld dig infomødet!</Button>
+        </div>
+      </form>
+      <div class="md:p-xl p-xs"></div>
+    </div>
+  </div>
 </MainLayout>
