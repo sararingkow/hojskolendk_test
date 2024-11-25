@@ -14,6 +14,9 @@ export interface CardProps {
 
 const { image, label, title, description, duration, nextTrip, price, include, buttonText, extralabel } = Astro.props;
 import Button from "./Button.astro";
+import { Image } from "astro:assets";
+import airplane from "../assets/images/airplane.svg";
+import ikon_uret from "../assets/images/uret1.svg";
 ---
 
 <div class="flex flex-col md:flex-row bg-white md:w-[1600px] rounded-sm shadow-md overflow-hidden bg-neutral-100">
@@ -35,11 +38,12 @@ import Button from "./Button.astro";
       )
     }
   </div>
+
   <!-- Content Section -->
-  <div class="flex flex-col md:flex-row gap-6 md:w-2/3 h-full">
+  <div class="flex flex-col md:flex-row gap-6 md:w-2/3">
     <!-- Title and Description -->
-    <div class="flex-1 py-sm mx-xs">
-      <h3 class="text-xl font-bold mb-xs">{title}</h3>
+    <div class="flex-1 py-6 px-6">
+      <h3 class="text-xl font-bold mb-2">{title}</h3>
       <p class="text-gray-600">{description}</p>
       <!-- Button Section -->
       <div class="mt-sm">
@@ -50,26 +54,51 @@ import Button from "./Button.astro";
     </div>
 
     <!-- Travel Info and Price Info -->
-    <div class="flex flex-row gap-6 flex-1">
+    <div class="flex flex-row gap-4 flex-1">
       <!-- Travel Info Section -->
-      <div class="bg-gray-200 flex-1 p-sm flex flex-col">
-        <p>
-          <span class="text-gray-500">Varighed</span>
-          <h4 class="font-semibold pb-xs">{duration}</h4>
-        </p>
-        <p>
-          <span class="text-gray-500">Næste rejse</span>
-          <h4 class="font-semibold">{nextTrip}</h4>
-        </p>
+      <div class="bg-gray-200 px-[16px] pt-[16px] flex-1">
+        <!-- Duration -->
+        <div class="flex items-center gap-4 mb-4">
+          <Image src={ikon_uret} alt="ur-ikon" class="w-5 h-5 object-cover" />
+          <div>
+            <p class="text-gray-500">Varighed</p>
+            <h4 class="font-semibold">{duration}</h4>
+          </div>
+        </div>
+
+        <!-- Next Trip -->
+        <div class="flex items-center gap-4 py-xs">
+          <Image src={airplane} alt="fly-ikon" class="w-5 h-5 object-cover" />
+          <div>
+            <p class="text-gray-500">Næste rejse</p>
+            <h4 class="font-semibold">
+              {
+                nextTrip.includes("-") ? (
+                  <>
+                    {nextTrip.split(" - ")[0]} -
+                    <span class="hidden md:inline">
+                      <br />
+                    </span>
+                    {nextTrip.split(" - ")[1]}
+                  </>
+                ) : (
+                  nextTrip
+                )
+              }
+            </h4>
+          </div>
+        </div>
       </div>
 
       <!-- Price Info Section -->
-      <div class="bg-gray-100 rounded-md flex-1 py-sm mx-sm">
-        <p>
-          <span class="text-gray-500">Pris pr. pers.</span>
-          <h4 class="font-semibold pb-xs">{price}</h4>
-        </p>
-        <p class="text-gray-500 mt-1">{include}</p>
+      <div class="bg-gray-100 p-4 flex-1 py-xs">
+        <div class="flex items-center gap-4 mb-2">
+          <div>
+            <p class="text-gray-500">Pris pr. pers.</p>
+            <h4 class="font-semibold pb-sm">{price}</h4>
+          </div>
+        </div>
+        <p class="text-gray-500">{include}</p>
       </div>
     </div>
   </div>
