@@ -129,7 +129,7 @@ const cards = [
 <MainLayout title="Rejser">
   <section class="relative w-full h-auto">
     <!-- Container for the image and overlay -->
-    <div class="relative aspect-w-16 aspect-h-9 w-full">
+    <div class="relative w-full">
       <!-- Dark overlay -->
       <div class="absolute inset-0 bg-neutral-950 w-full md:h-[800px] h-[450px] bg-opacity-30 z-[30]"></div>
       <!-- Image -->
@@ -137,21 +137,23 @@ const cards = [
     </div>
 
     <!-- Text content over the image (no centering) -->
-    <div class="absolute w-full px-[20px] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[40]">
-      <h4 class="font-lato text-neutral-50 md:text-h4-desktop text-h4-mobile md:pt-xs pt-10xl">Priser &</h4>
+    <div class="absolute w-full p-s top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[40]">
+      <h4 class="font-lato text-neutral-50 md:text-h4-desktop text-h4-mobile md:pt-xs pt-xl">Priser &</h4>
       <h1 class="text-display-mobile md:text-display-desktop font-display font-bold text-neutral-50">REJSER</h1>
       <p class="font-lato text-neutral-50 md:text-p-desktop text-mobile-desktop max-w-3xl">
         Få et klart overblik over vores højskoleophold i udlandet. Her finder du information om forløb, datoer, priser og alt, hvad du behøver at
         vide. På opholdssiderne kan du læse mere om programmet, adventure-aktiviteter, fag, rejsebreve og hvad der er inkluderet.
       </p>
       <div class="flex flex-column pt-sm gap-s md:flex md:pt-s">
-        <Button variant="secondary" size="sm:xsmall md:medium">Kontakt</Button>
+        <a href="#contact">
+          <Button variant="secondary" size="sm:xsmall md:medium">Kontakt</Button>
+        </a>
         <Button variant="primary" size="sm:xsmall md:medium">Infomøde</Button>
       </div>
     </div>
   </section>
   <section class="py-12 px-6 flex justify-center items-center">
-    <div class="container mx-auto flex flex-wrap justify-center gap-sm md:pt-xs pt-7xl">
+    <div class="container mx-auto flex flex-wrap justify-center gap-sm md:pt-xs pt-xxxs">
       {
         cards.map((card) => (
           <CardListeview
@@ -178,7 +180,7 @@ const cards = [
     </p>
     <div class="pb-sm"><Button variant="primary" size="medium">Tilmeld dig infomødet</Button></div>
 
-    <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-md md:items-center pb-sm">
+    <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-md md:items-center pb-md">
       <Cardinfomoede
         url="#"
         cardimage="copenhagen.webp"
@@ -209,3 +211,9 @@ const cards = [
     </section>
   </section>
 </MainLayout>
+
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
