@@ -5,7 +5,153 @@ import Link from "../components/Link.astro";
 ---
 
 <MainLayout title="Hold dig opdateret">
-    <section class="max-w-7xl mx-auto p-6">
-        <h1>Opdateret</h1>
-    </section>
+  <div class="flex flex-col md:flex-row min-h-screen">
+    <!-- Left Section -->
+    <div class="bg-blue-900 text-neutral-50 p-md w-full lg:w-1/2">
+      <h1 class="md:text-h1-desktop text-h1-mobile font-bold md:pt-3xl pt-xl text-neutral-50">Vær opdateret – Højskole i Udlandet</h1>
+      <p class="mb-6 mt-8 text-neutral-50 md:text-p-desktop text-p-mobile">
+        Overvejer du at tilmelde dig et af vores højskoleophold i udlandet? Så kan det være en god idé at reservere en plads:
+      </p>
+      <ul class="list-disc list-inside mb-6">
+        <li class="text-neutral-50 md:text-p-desktop text-p-mobile">Gratis og uforpligtende</li>
+        <li class="text-neutral-50 md:text-p-desktop text-p-mobile">
+          Modtag nyheder om afgangen, som f.eks. "Få pladser", og hør fra os inden udsolgt
+        </li>
+        <li class="text-neutral-50 md:text-p-desktop text-p-mobile">Pladsen er sikret først ved tilmelding og betaling af depositum (3.000 DKK)</li>
+      </ul>
+      <p class="font-bold mb-4 text-neutral-50 md:text-p-desktop text-p-mobile">
+        VIGTIGT: <span class="font-regular"
+          >En reservation garanterer ikke en plads. Vi modtager flere reservationer, end der er pladser. For at sikre dig en plads skal du tilmelde
+          dig og betale depositum.</span
+        >
+      </p>
+      <p class="mb-6 text-neutral-50 md:text-p-desktop text-p-mobile">
+        Er en afgang udsolgt? Du kan stadig komme på venteliste ved at tilmelde dig. For at reservere en plads skal du blot udfylde vores formular. Vi
+        bekræfter din reservation hurtigst muligt – normalt inden for 24 timer. Husk, at din reservation først er gyldig, når du har modtaget en
+        bekræftelse på mail.
+      </p>
+    </div>
+
+    <!-- Right Section -->
+    <div class="bg-neutral-50 md:p-xl p-sm w-full lg:w-1/2 md:pt-6xl pt-md">
+      <h2 class="md:text-h2-desktop text-h2-mobile font-bold mb-10 text-center">Hold dig opdateret</h2>
+      <form action="#" method="POST" class="space-y-6">
+        <!-- Dropdown -->
+        <div>
+          <div class="pt-sm">
+            <h4 class="md:text-h4-desktop text-h4-mobile font-bold mb-2">Højskoleophold<span class="text-orange-700">*</span></h4>
+          </div>
+          <select
+            id="destination"
+            class="w-full border bg-neutral-100 border-neutral-100 p-2 rounded-sm text-neutral-700"
+            required
+            onchange="this.className = this.value ? 'w-full border bg-neutral-100 border-neutral-100 p-2 rounded-sm text-gray-950' : 'w-full border border-neutral-100 p-2 rounded-sm'"
+          >
+            <option value="" disabled selected hidden>Vælg ønsket destination</option>
+            <option>Caribien, Hawaii & Mexico</option>
+            <option> Maldiverne, Sri Lanka, Bali & Gili Islands</option>
+            <option>Australien, NZ, Bali & Gili Islands</option>
+            <option>Australien, Japan, Bali & Gili Islands</option>
+            <option>Hawaii, Australien, Japan, Bali & Gili Islands</option>
+            <option>Brasilien, Bolivia, Colombia, Ecuador, Peru & Argentina</option>
+            <option>Costa rica, Mexico & Colombia</option>
+            <option>Indien, Nepal, Thailand, Vietnam & Sri Lanka</option>
+            <option>Bali, Lombok & Gili (sommerhøjskole)</option>
+          </select>
+        </div>
+
+        <!-- Contact Info -->
+
+        <div>
+          <div class="pt-sm">
+            <h4 class="md:text-h4-desktop text-h4-mobile font-bold mb-3">Kontaktinformation</h4>
+          </div>
+          <label for="name" class="block font-regular mb-2">Fulde navn<span class="text-orange-700">*</span></label>
+          <input
+            type="text"
+            id="name"
+            class="w-full border bg-neutral-100 border-neutral-100 p-2 rounded-sm text-neutral-700"
+            placeholder="Børge Møller Hansen"
+            required
+          />
+        </div>
+
+        <div>
+          <label for="gender" class="block font-regular mb-2">Vælg køn <span class="font-semibold">(som det fremgår i dit pas)</span></label>
+          <select
+            id="gender"
+            class="w-full border bg-neutral-100 border-neutral-100 p-2 rounded-sm text-neutral-700"
+            required
+            onchange="this.className = this.value ? 'w-full border bg-neutral-100 border-neutral-100 p-2 rounded-sm text-gray-950' : 'w-full border border-neutral-100 p-2 rounded-sm'"
+          >
+            <option value="" disabled selected hidden>Mand</option>
+            <option>Mand</option>
+            <option>Kvinde</option>
+            <option>Andet</option>
+            <option>Ønsker ikke at angive</option>
+          </select>
+        </div>
+
+        <div class="flex flex-wrap gap-4">
+          <div class="flex-1 min-w-[200px]">
+            <label for="phone" class="block font-regular mb-2">Tlf. nr.<span class="text-orange-700">*</span></label>
+            <input
+              type="tel"
+              id="phone"
+              class="w-full border bg-neutral-100 border-neutral-100 p-2 rounded-sm text-neutral-700"
+              placeholder="+45 11 22 33 44"
+              required
+            />
+          </div>
+
+          <div class="flex-1 min-w-[200px]">
+            <label for="email" class="block font-regular mb-2">Email<span class="text-orange-700">*</span></label>
+            <input
+              type="email"
+              id="email"
+              class="w-full border bg-neutral-100 border-neutral-100 p-2 rounded-sm text-neutral-700"
+              placeholder="boerge.m.hansen@gmail.com"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Remarks -->
+        <div>
+          <div class="pt-[20px]">
+            <h4 class="md:text-h4-desktop text-h4-mobile font-bold mb-3">Bemærkning(er)</h4>
+          </div>
+          <textarea
+            rows="8"
+            id="remarks"
+            class="w-full border bg-neutral-100 border-neutral-100 p-2 rounded-sm text-neutral-700 placeholder:text-neutral-700 text-left align-top"
+            placeholder="Evt. forhold der skal tages hensyn til"></textarea>
+        </div>
+
+        <!-- Checkbox Fields -->
+        <div>
+          <label class="flex items-start space-x-2">
+            <input type="checkbox" required class="mt-1" />
+            <span
+              >Jeg har læst jeres <a href="#" class="text-orange-700 underline">privatlivspolitik</a> og <a href="#" class="text-orange-700 underline"
+                >generelle bestemmelser</a
+              > og er indforstået med begge<span class="text-orange-700">*</span></span
+            >
+          </label>
+        </div>
+
+        <div>
+          <label class="flex items-start space-x-2">
+            <input type="checkbox" class="mt-1" />
+            <span>Ja tak – send mig jeres brochure</span>
+          </label>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="flex justify-center pt-[30px]">
+          <Button variant="primary" size="sm:xsmall md:medium">Reservér plads</Button>
+        </div>
+      </form>
+    </div>
+  </div>
 </MainLayout>
