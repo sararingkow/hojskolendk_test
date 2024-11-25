@@ -8,38 +8,42 @@ import Link from "../components/Link.astro";
   <div class="flex flex-col md:flex-row min-h-screen">
     <!-- Left Section -->
     <div class="bg-blue-900 text-neutral-50 p-md w-full lg:w-1/2">
-      <h1 class="md:text-h1-desktop text-h1-mobile font-bold md:pt-3xl pt-xl text-neutral-50">Vær opdateret – Højskole i Udlandet</h1>
-      <p class="mb-6 mt-8 text-neutral-50 md:text-p-desktop text-p-mobile">
-        Overvejer du at tilmelde dig et af vores højskoleophold i udlandet? Så kan det være en god idé at reservere en plads:
-      </p>
-      <ul class="list-disc list-inside mb-6">
-        <li class="text-neutral-50 md:text-p-desktop text-p-mobile">Gratis og uforpligtende</li>
-        <li class="text-neutral-50 md:text-p-desktop text-p-mobile">
-          Modtag nyheder om afgangen, som f.eks. "Få pladser", og hør fra os inden udsolgt
-        </li>
-        <li class="text-neutral-50 md:text-p-desktop text-p-mobile">Pladsen er sikret først ved tilmelding og betaling af depositum (3.000 DKK)</li>
-      </ul>
-      <p class="font-bold mb-4 text-neutral-50 md:text-p-desktop text-p-mobile">
-        VIGTIGT: <span class="font-regular"
-          >En reservation garanterer ikke en plads. Vi modtager flere reservationer, end der er pladser. For at sikre dig en plads skal du tilmelde
-          dig og betale depositum.</span
-        >
-      </p>
-      <p class="mb-6 text-neutral-50 md:text-p-desktop text-p-mobile">
-        Er en afgang udsolgt? Du kan stadig komme på venteliste ved at tilmelde dig. For at reservere en plads skal du blot udfylde vores formular. Vi
-        bekræfter din reservation hurtigst muligt – normalt inden for 24 timer. Husk, at din reservation først er gyldig, når du har modtaget en
-        bekræftelse på mail.
-      </p>
+      <div class="w-full md:pt-xl pt-md">
+        <h1 class="flex w-full font-display pt-m text-h2-mobile text-neutral-50 md:text-h2-desktop">Vær opdateret – Højskole i Udlandet</h1>
+      </div>
+      <div class="mt-8">
+        <p class="text-neutral-50 md:text-p-desktop text-p-mobile">
+          Overvejer du at tilmelde dig et af vores højskoleophold i udlandet? Så kan det være en god idé at reservere en plads:
+        </p>
+        <ul class="list-disc list-inside mb-6">
+          <li class="text-neutral-50 md:text-p-desktop text-p-mobile">Gratis og uforpligtende</li>
+          <li class="text-neutral-50 md:text-p-desktop text-p-mobile">
+            Modtag nyheder om afgangen, som f.eks. "Få pladser", og hør fra os inden udsolgt
+          </li>
+          <li class="text-neutral-50 md:text-p-desktop text-p-mobile">Pladsen er sikret først ved tilmelding og betaling af depositum (3.000 DKK)</li>
+        </ul>
+        <p class="font-bold mb-4 text-neutral-50 md:text-p-desktop text-p-mobile">
+          VIGTIGT: <span class="font-regular"
+            >En reservation garanterer ikke en plads. Vi modtager flere reservationer, end der er pladser. For at sikre dig en plads skal du tilmelde
+            dig og betale depositum.</span
+          >
+        </p>
+        <p class="mb-6 text-neutral-50 md:text-p-desktop text-p-mobile">
+          Er en afgang udsolgt? Du kan stadig komme på venteliste ved at tilmelde dig. For at reservere en plads skal du blot udfylde vores formular.
+          Vi bekræfter din reservation hurtigst muligt – normalt inden for 24 timer. Husk, at din reservation først er gyldig, når du har modtaget en
+          bekræftelse på mail.
+        </p>
+      </div>
     </div>
 
     <!-- Right Section -->
-    <div class="bg-neutral-50 md:p-xl p-sm w-full lg:w-1/2 md:pt-6xl pt-md">
-      <h2 class="md:text-h2-desktop text-h2-mobile font-bold mb-10 text-center">Hold dig opdateret</h2>
-      <form action="#" method="POST" class="space-y-6">
+    <div class="bg-neutral-50 md:pt-2xl pt-xs md:pl-xl md:pr-xl pl-sm pr-sm mx-auto">
+      <form action="#" method="POST" class="space-y-6 w-full md:px-s md:py-sm">
+        <h1 class="flex w-full font-display pt-m text-h2-mobile text-gray-950 md:text-h2-desktop">Hold dig opdateret</h1>
         <!-- Dropdown -->
         <div>
-          <div class="md:pt-sm pt-xxs">
-            <h4 class="md:text-h4-desktop text-h4-mobile font-bold mb-2">Højskoleophold<span class="text-orange-700">*</span></h4>
+          <div class="md:pt-10 pt-8 py-2">
+            <label for="destination" class="font-semibold text-h3-mobile">Højskoleophold<span class="text-orange-700">*</span></label>
           </div>
           <select
             id="destination"
@@ -63,8 +67,8 @@ import Link from "../components/Link.astro";
         <!-- Contact Info -->
 
         <div>
-          <div class="pt-sm">
-            <h4 class="md:text-h4-desktop text-h4-mobile font-bold mb-3">Kontaktinformation</h4>
+          <div class="pt-sm pb-xxs">
+            <label for="name" class="font-semibold text-h3-mobile">Kontaktinformation</label>
           </div>
           <label for="name" class="block font-regular mb-2">Fulde navn<span class="text-orange-700">*</span></label>
           <input
@@ -118,8 +122,8 @@ import Link from "../components/Link.astro";
 
         <!-- Remarks -->
         <div>
-          <div class="pt-[20px]">
-            <h4 class="md:text-h4-desktop text-h4-mobile font-bold mb-3">Bemærkning(er)</h4>
+          <div class="pt-sm pb-xxs">
+            <label for="remarks" class="font-semibold text-h3-mobile">Bemærkning(er)</label>
           </div>
           <textarea
             rows="8"
