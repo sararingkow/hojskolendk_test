@@ -2,6 +2,7 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import Button from "../components/Button.astro";
 import CardListeview from "../components/CardListeview.astro";
+import Cardinfomoede from "../components/CardInfomoede.astro";
 
 const cards = [
   {
@@ -116,5 +117,43 @@ const cards = [
         ))
       }
     </div>
+  </section>
+  <section class="flex flex-col px-s pt-sm mx-auto lg:max-w-7xl md:p-large md:pt-xl">
+    <h1 class="text-h2-mobile font-display text-neutral-950 md:text-h1-desktop">Infomøde</h1>
+    <p class="font-lato text-neutral-950 py-xxs text-p-mobile lg:w-1/2 md:text-p-desktop">
+      Hvis du drømmer om et fantastisk rejseeventyr med masser af eventyr, vilde naturoplevelser og spændende kulturmøder så smut forbi et af vores
+      hyggelige infomøder i København eller Aarhus – eller mød os på et online infomøde.
+    </p>
+    <div class="pb-sm"><Button variant="primary" size="medium">Tilmeld dig infomødet</Button></div>
+
+    <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-md md:items-center">
+      <Cardinfomoede
+        url="#"
+        cardimage="copenhagen.webp"
+        sted="København"
+        cardimagealt="København infomøde"
+        lokale="Studenthuset, Købmagergade 52-1150"
+        dato="16. Januar. 2025"
+        tidspunkt="Kl.17-19"
+      />
+      <Cardinfomoede
+        url="#"
+        cardimage="aarhus.webp"
+        sted="Aarhus"
+        cardimagealt="Aarhus infomøde"
+        lokale="LYN fabrikken, Vestergade 49B – 8000"
+        dato="14. Januar. 2025"
+        tidspunkt="Kl.17-19"
+      />
+      <Cardinfomoede
+        url="#"
+        cardimage="online.webp"
+        sted="Online infomøde"
+        cardimagealt="online infomøde"
+        lokale="Online infomøde"
+        dato="13. Januar. 2025"
+        tidspunkt="Kl.17-19"
+      />
+    </section>
   </section>
 </MainLayout>

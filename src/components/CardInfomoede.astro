@@ -1,0 +1,34 @@
+---
+const { url = "#", cardimage = "", cardimagealt = "", sted = "", lokale = "", tidspunkt = "", dato = "" } = Astro.props;
+import { Image } from "astro:assets";
+import ikon_pin from "../assets/images/stedpin.svg";
+import ikon_calendar from "../assets/images/datocalendar.svg";
+import ikon_uret from "../assets/images/uret1.svg";
+---
+
+<article class="card @container">
+  <a href={url} class="flex flex-col justify-between h-full">
+    <header class="daseholdheader relative aspect-[16/9]">
+      <img src={cardimage} alt={cardimagealt} class="w-full object-cover h-auto rounded-t-sm filter brightness-75" />
+      <div class="absolute bottom-xxs flex items-center left-[0] text-neutral-50 pl-xs text-h2-mobile font-display font-bold">{sted}</div>
+    </header>
+    <section class="bg-neutral-100 rounded-b-sm h-full sm:h-[163px] lg:h-[145px] py-xxxs md:grid md:items-center md:pt-xxs">
+      <div class="venstre grow font-medium">
+        <div class="flex gap-[5px] text-p-mobile items-center px-xs pt-xxs">
+          <span><Image src={ikon_pin} alt="pin ikon" class="w-xs flex-shrink-0 object-cover" /> </span>
+          <span class="text-neutral-950 font-lato">{lokale}</span>
+        </div>
+      </div>
+      <div class="højre grow font-medium md:grid md:grid-cols-2 md:pb-s md:items-center md:justify-center">
+        <div class="flex gap-xxs text-p-mobile items-center px-xs pt-xxs">
+          <span><Image src={ikon_calendar} alt="calendar ikon" class="w-xs object-cover" /> </span>
+          <span class="text-neutral-950 font-lato">{dato}</span>
+        </div>
+        <div class="flex gap-xxs text-p-mobile items-center px-xs pt-xxs pb-xs md:pb-[0px]">
+          <span><Image src={ikon_uret} alt="uret ikon" class="w-xs object-cover" /> </span>
+          <span class="text-neutral-950 font-lato">{tidspunkt}</span>
+        </div>
+      </div>
+    </section>
+  </a>
+</article>
